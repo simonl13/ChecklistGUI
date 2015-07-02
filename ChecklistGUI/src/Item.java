@@ -66,7 +66,6 @@ public class Item {
 			Files.move(tempFile.toPath(), inputFile.toPath()); 
 		}
 		
-		System.out.println("Item #" + removedItem + " successfully removed."); //success msg.
 	}
 
 	public static void loadItems() throws IOException {
