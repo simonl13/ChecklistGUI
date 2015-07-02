@@ -86,8 +86,8 @@ public class Screen extends JFrame{
 		});
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		newChecklist.loadItems();
+		Screen checkScreen = new Screen();
 	}
 
 }
