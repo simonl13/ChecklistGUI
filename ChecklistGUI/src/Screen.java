@@ -14,7 +14,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class Screen extends JFrame{
 
-	private static final int WIDTH = 1000;
+	private static final int WIDTH = 1000; //sets window width and height
 	private static final int HEIGHT = 1500;
 	
 	private static JLabel text;
@@ -22,10 +22,10 @@ public class Screen extends JFrame{
 	private JFrame frame;
 	
 	ImageGetter getIt = new ImageGetter();
-	ImageIcon checkList = getIt.getImage("checklist.png");
+	ImageIcon checkList = getIt.getImage("checklist.png"); //sets checklist.png as image.
 	Item newChecklist = new Item();
 	
-	private static JButton addButton;
+	private static JButton addButton; //adds button variables
 	private static JButton clearButton;
 	private static JButton removeButton;
 	private static JButton quitButton;
@@ -40,26 +40,26 @@ public class Screen extends JFrame{
 		}
 		
 		frame = new JFrame();
-		text = new JLabel("Push a button to perform an action.", SwingConstants.CENTER);
+		text = new JLabel("Push a button to perform an action.", SwingConstants.CENTER); //label
 	
 		checklistImage = new JLabel(checkList);
 		
-		addButton = new JButton("Add Item");
+		addButton = new JButton("Add Item"); //sets button text
 		removeButton = new JButton("Remove Item");
 		clearButton = new JButton("Clear all items.");
 		quitButton = new JButton("Quit Checklist.");
 		
 		quitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //if button pressed, quit.
 				System.exit(0);
 			}
 		});
 		
 		addButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String addedItem = (String)JOptionPane.showInputDialog(frame, "What would you like to add to the list?", "Add Item", JOptionPane.PLAIN_MESSAGE);
+			public void actionPerformed(ActionEvent e) { //if button is pressed,
+				String addedItem = (String)JOptionPane.showInputDialog(frame, "What would you like to add to the list?", "Add Item", JOptionPane.PLAIN_MESSAGE); //ask for input
 				try {
-					newChecklist.newItem(addedItem);
+					newChecklist.newItem(addedItem); //add new item
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -69,15 +69,15 @@ public class Screen extends JFrame{
 		
 		removeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int removedItem = Integer.parseInt(JOptionPane.showInputDialog(frame, "Which item number would you like to remove from the list?", "Remove Item", JOptionPane.PLAIN_MESSAGE));
-				newChecklist.removeItem(removedItem);
+				int removedItem = Integer.parseInt(JOptionPane.showInputDialog(frame, "Which item number would you like to remove from the list?", "Remove Item", JOptionPane.PLAIN_MESSAGE)); //input number
+				newChecklist.removeItem(removedItem); //remove item
 			}
 		});
 		
 		clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					newChecklist.clearAll();
+					newChecklist.clearAll(); //clears all
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -85,23 +85,23 @@ public class Screen extends JFrame{
 			}
 		});
 		
-		JPanel masterPanel = new JPanel();
-		JPanel buttonPanelAdd = new JPanel();
+		JPanel masterPanel = new JPanel(); //master panel
+		JPanel buttonPanelAdd = new JPanel(); //button panels
 		JPanel buttonPanelRemove = new JPanel();
 		JPanel buttonPanelClear = new JPanel();
 		JPanel buttonPanelQuit = new JPanel();
 		
-		checklistImage.setAlignmentX(Component.CENTER_ALIGNMENT);
+		checklistImage.setAlignmentX(Component.CENTER_ALIGNMENT); //aligns image to the center
 		
-		masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.Y_AXIS));
+		masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.Y_AXIS)); //sets a boxlayout
 		masterPanel.add(checklistImage);
 		
-		buttonPanelAdd.setLayout(new GridLayout (0, 1));
+		buttonPanelAdd.setLayout(new GridLayout (0, 1)); //aligns buttons to a grid, on top of each other
 		buttonPanelRemove.setLayout(new GridLayout(0, 2));
 		buttonPanelClear.setLayout(new GridLayout(0, 3));
 		buttonPanelQuit.setLayout(new GridLayout(0, 4));
 		
-		buttonPanelAdd.add(addButton);
+		buttonPanelAdd.add(addButton); //adds buttons to button panels.
 		
 		buttonPanelRemove.add(removeButton);
 		
@@ -109,7 +109,7 @@ public class Screen extends JFrame{
 		
 		buttonPanelQuit.add(quitButton);
 		
-		Container pane = getContentPane();
+		Container pane = getContentPane(); //creates window panes
 		pane.setLayout(new BorderLayout());
 		pane.add(masterPanel, BorderLayout.CENTER);
 		pane.add(buttonPanelAdd, BorderLayout.PAGE_END);
@@ -119,13 +119,13 @@ public class Screen extends JFrame{
 		
 		masterPanel.setVisible(true);
 		setSize(WIDTH, HEIGHT);
-		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true); //sets visibility to true.
+		setDefaultCloseOperation(EXIT_ON_CLOSE); //exit if closed,
 		
 	}
 	public static void main(String[] args) {
-		newChecklist.loadItems();
-		Screen checkScreen = new Screen();
+		newChecklist.loadItems(); //load previous items.
+		Screen checkScreen = new Screen(); //call a Screen
 	}
 
 }
