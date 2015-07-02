@@ -84,7 +84,45 @@ public class Screen extends JFrame{
 				}
 			}
 		});
-	
+		
+		JPanel masterPanel = new JPanel();
+		JPanel buttonPanelAdd = new JPanel();
+		JPanel buttonPanelRemove = new JPanel();
+		JPanel buttonPanelClear = new JPanel();
+		JPanel buttonPanelQuit = new JPanel();
+		
+		checklistImage.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.Y_AXIS));
+		masterPanel.add(checklistImage);
+		
+		buttonPanelAdd.setLayout(new GridLayout (0, 1));
+		buttonPanelRemove.setLayout(new GridLayout(0, 2));
+		buttonPanelClear.setLayout(new GridLayout(0, 3));
+		buttonPanelQuit.setLayout(new GridLayout(0, 4));
+		
+		buttonPanelAdd.add(addButton);
+		
+		buttonPanelRemove.add(removeButton);
+		
+		buttonPanelClear.add(clearText);
+		
+		buttonPanelQuit.add(quitButton);
+		
+		Container pane = getContentPane();
+		pane.setLayout(new BorderLayout());
+		pane.add(masterPanel, BorderLayout.CENTER);
+		pane.add(buttonPanelAdd, BorderLayout.PAGE_END);
+		pane.add(buttonPanelRemove, BorderLayout.PAGE_END);
+		pane.add(buttonPanelClear, BorderLayout.PAGE_END);
+		pane.add(buttonPanelQuit, BorderLayout.PAGE_END);
+		
+		masterPanel.setVisible(true);
+		setSize(WIDTH, HEIGHT);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
 	public static void main(String[] args) {
 		newChecklist.loadItems();
 		Screen checkScreen = new Screen();
