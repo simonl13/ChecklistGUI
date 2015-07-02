@@ -130,7 +130,9 @@ public class Screen extends JFrame{
 				//superimpose
 			}
 		}
-		else if (((newChecklist.getTotal() > 0)) && (newChecklist)
+		else if (((newChecklist.getTotal() > 0)) && (newChecklist.getTotal() > 10)) {
+			//insert same code but with a warning and stop at 10.
+		}
 	}
 	public static void main(String[] args) {
 		newChecklist.loadItems(); //load previous items.
