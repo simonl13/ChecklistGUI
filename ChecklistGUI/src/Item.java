@@ -14,6 +14,9 @@ public class Item {
 	static Scanner itemInput = new Scanner(System.in); //new Scanner
 	static ArrayList<String> checkList = new ArrayList<>(); //new ArrayList for checklist.
 
+	public void getTotal() {
+		return checkList.size();
+	}
 	public void newItem(String newItem) throws IOException {
 		FileWriter output = new FileWriter("checklist.txt", true); //Uses checklist.txt to score data.
 		
