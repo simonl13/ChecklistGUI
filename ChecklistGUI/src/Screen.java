@@ -13,7 +13,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 
 public class Screen extends JFrame{
-
+	
+	String checklistItem;
 	private static final int WIDTH = 1000; //sets window width and height
 	private static final int HEIGHT = 1500;
 	
@@ -122,6 +123,13 @@ public class Screen extends JFrame{
 		setVisible(true); //sets visibility to true.
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //exit if closed,
 		
+		if((newChecklist.getTotal() > 0) && (newChecklist.getTotal() < 10)) {
+			for (int i = 0; i < newChecklist.getTotal(); i++) {
+				checklistItem = checkList.get(i);
+				//insert code to display the string in the areas on the picture.
+				//superimpose
+			}
+		}
 	}
 	public static void main(String[] args) {
 		newChecklist.loadItems(); //load previous items.
