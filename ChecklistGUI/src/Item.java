@@ -26,12 +26,12 @@ public class Item {
 	
 	public void listItems() {
 		if (checkList.size() == 0) { //checks if any items exist in array.
-			System.out.println("There are no checklist items yet. Type in \"new\" to make one.");
+			//System.out.println("There are no checklist items yet. Type in \"new\" to make one.");
 		}
 		else {
-			System.out.println("Checklist for Success!");
-			for (int i = 0; i < checkList.size(); i++) { //displays line for each item in array.
-				System.out.println("#" + i + ". " + checkList.get(i)); //prints line for each item
+			//System.out.println("Checklist for Success!");
+			//for (int i = 0; i < checkList.size(); i++) { //displays line for each item in array.
+			//	System.out.println("#" + i + ". " + checkList.get(i)); //prints line for each item
 			}
 		}
 	}
