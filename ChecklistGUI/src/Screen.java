@@ -123,13 +123,14 @@ public class Screen extends JFrame{
 		setVisible(true); //sets visibility to true.
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //exit if closed,
 		
-		if((newChecklist.getTotal() > 0) && (newChecklist.getTotal() < 10)) {
+		if((newChecklist.getTotal() > 0) && (newChecklist.getTotal() <= 10)) {
 			for (int i = 0; i < newChecklist.getTotal(); i++) {
 				checklistItem = checkList.get(i);
 				//insert code to display the string in the areas on the picture.
 				//superimpose
 			}
 		}
+		else if (((newChecklist.getTotal() > 0)) && (newChecklist)
 	}
 	public static void main(String[] args) {
 		newChecklist.loadItems(); //load previous items.
