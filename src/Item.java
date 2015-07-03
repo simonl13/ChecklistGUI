@@ -7,24 +7,26 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Scanner;
+
+import javax.swing.JLabel;
 
 public class Item {
+	
+	public ArrayList<String> checkList = new ArrayList<String>(); //new ArrayList for checklist.
 
-	static Scanner itemInput = new Scanner(System.in); //new Scanner
-	static ArrayList<String> checkList = new ArrayList<>(); //new ArrayList for checklist.
-
-	public void getTotal() {
+	public int getTotal() {
 		return checkList.size();
 	}
-	public void newItem(String newItem) throws IOException {
+	public JLabel newItem(String newItem) throws IOException {
 		FileWriter output = new FileWriter("checklist.txt", true); //Uses checklist.txt to score data.
 		
 		output.write(newItem + System.getProperty("line.separator")); //writes item to file.
 		output.flush(); //flushes output for faster writing.
-
-		checkList.add(newItem); //adds item to array in memory.
+		JLabel label =new JLabel(newItem);
+		checkList.add(newItem); //adds item to array in memory
 		output.close(); //closes writer.
+		return label;
+		
 	}
 	
 	public void listItems() {
@@ -37,7 +39,6 @@ public class Item {
 			//	System.out.println("#" + i + ". " + checkList.get(i)); //prints line for each item
 			}
 		}
-	}
 	
 	public void removeItem(int removedItem) throws IOException {
 		removedItem -= 1;
@@ -71,7 +72,7 @@ public class Item {
 		
 	}
 
-	public static void loadItems() throws IOException {
+	public void loadItems() throws IOException {
 		try (BufferedReader reader = new BufferedReader(new FileReader("checklist.txt"))) { 
 			String line; //sets the line content to a string.
 			while ((line = reader.readLine()) !=null) { //repeats for every non-blank line in the file.
@@ -86,8 +87,8 @@ public class Item {
 	public void clearAll() throws IOException {
 		File checklistFile = new File ("checklist.txt");
 		checklistFile.delete();
-		System.out.println("Deleted Checklist File.");
+		//System.out.println("Deleted Checklist File.");
 		checkList.clear();
-		System.out.println("Cleared Checklist.");
+		//System.out.println("Cleared Checklist.");
 	}
 }
